@@ -18,9 +18,10 @@ public class EmployeeManagement {
         switch (choice) {
             case 1 -> empService.displayList();
             case 2 -> empService.addEmp();
+            default -> System.out.println("NUll");
         }
 
-
+        
     }
 
    
