@@ -10,9 +10,6 @@ public class Employee extends Person{
     String empPosition;
     int empSalary;
   
-    public Employee(String perId) {
-        super(perId);
-    }
 
     public Employee(String perId, String perName, Date perBirth, String perSex, String perCMND, String perPhone,
             String perEmail, String empLevel, String empPosition, int empSalary) {
