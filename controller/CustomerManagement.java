@@ -1,7 +1,6 @@
 package controller;
 
 import model.CustomerService;
-import model.Validate;
 
 public class CustomerManagement {
     CustomerService cusService = new CustomerService();
@@ -19,7 +18,7 @@ public class CustomerManagement {
                 "4:Return main menu"
             );
 
-            int choice = Validate.getIntFromInput("choice");
+            int choice = Validation.getIntFromInput("choice");
             switch (choice) {
                 case 1 -> cusService.displayList();
                 case 2 -> cusService.addCus();

@@ -1,7 +1,6 @@
 package controller;
 
 import model.EmployeeService;
-import model.Validate;
 
 public class EmployeeManagement {
     EmployeeService empService = new EmployeeService();
@@ -18,7 +17,7 @@ public class EmployeeManagement {
                 "4:Return main menu"
             );
 
-            int choice = Validate.getIntFromInput("choice");
+            int choice = Validation.getIntFromInput("choice");
             switch (choice) {
                 case 1 -> empService.displayList();
                 case 2 -> empService.addEmp();

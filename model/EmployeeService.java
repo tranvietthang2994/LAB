@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import controller.Validation;
+
 public class EmployeeService  {
 
     List<Employee> listEmp;
@@ -41,9 +43,8 @@ public class EmployeeService  {
         String codeId;
         System.out.println("\nAdd new Employee");
         
-        try {
             do{
-                codeId = Validate.getStringFromInput("ID");
+                codeId = Validation.getEmpIDFromInput("ID");
                 //check empId validate
         
                 if(checkExistID(codeId, listEmp)){
@@ -56,32 +57,29 @@ public class EmployeeService  {
         
             }while(!checkID);
         
-        String perName = Validate.getStringFromInput("Name");
+        String perName = Validation.getPerNameFromInput("Name");
 
-        System.out.print("Enter date (dd/MM/yyyy): ");
-         Date perBirth = Validate.getDateFromInput();
+         Date perBirth = Validation.getBirthFromInput("date of birth");
 
-         String perSex = Validate.getStringFromInput("Sex");
+         String perSex = Validation.getStringFromInput("Sex");
 
-        String perCMND = Validate.getStringFromInput("CMND");
+        String perCMND = Validation.getPerCMNDFromInput("CMND");
 
-        String perPhone = Validate.getStringFromInput("Phone number");
+        String perPhone = Validation.getPerPhoneFromInput("Phone number");
 
-        String perEmail = Validate.getStringFromInput("Email");
+        String perEmail = Validation.getStringFromInput("Email");
 
-        String empLevel = Validate.getStringFromInput("Level");
+        String empLevel = Validation.getStringFromInput("Level");
 
-        String empPosition = Validate.getStringFromInput("Position");
-
-        int empSalary = Validate.getIntFromInput("salary");
+        String empPosition = Validation.getStringFromInput("Position");
+        
+        int empSalary = Validation.getIntFromInput("salary");
 
         Employee emp = new Employee(codeId, perName, perBirth, perSex, perCMND, perPhone, perEmail, empLevel, empPosition, empSalary);
 
         listEmp.add(emp);
         
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+       
     }
 
     public void editEmp(){
@@ -94,7 +92,7 @@ public class EmployeeService  {
         System.out.println("                          \t~~~~~~~~~~~~~~~~~~~~~~~~ EDIT Employee~~~~~~~~~~~~~~~~~~~~~~~~");
         do{
 
-            perId = Validate.getStringFromInput("ID");
+            perId = Validation.getEmpIDFromInput("ID");
             if (checkExistID(perId, listEmp)) {
                 System.out.println("~~~~~~~~~What type do you want to change?");
                 System.out.println(
@@ -117,11 +115,11 @@ public class EmployeeService  {
             }
         }while(!check);
 
-        int choice = Validate.getIntFromInput("Choice");
+        int choice = Validation.getIntFromInput("Choice");
         switch (choice) {
             case 1:
                 System.out.println("~~~~~~~~~What name you want to change?");
-                String name = sc.nextLine();
+                String name = Validation.getPerNameFromInput("Name");
                 for(Employee emp : listEmp){
                     if (emp.getPerId().equals(perId)) {
                         emp.setPerName(name);
@@ -130,20 +128,18 @@ public class EmployeeService  {
                 break;
             case 2: 
                  System.out.println("~~~~~~~~~What date of birth you want to change?");
-                try {
-                    Date date = Validate.getDateFromInput();
+                
+                    Date date = Validation.getBirthFromInput("date of birth");
                     for(Employee emp : listEmp){
                         if (emp.getPerId().equals(perId)) {
                             emp.setPerBirth(date);
                         }
                     }
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                
                 break;
             case 3:
                 System.out.println("~~~~~~~~~What SEX you want to change?");
-                String sex = sc.nextLine();
+                String sex = Validation.getStringFromInput("Sex");
                 for(Employee emp : listEmp){
                     if (emp.getPerId().equals(perId)) {
                         emp.setPerSex(sex);
@@ -152,7 +148,7 @@ public class EmployeeService  {
                 break;
             case 4:
                  System.out.println("~~~~~~~~~What CMND you want to change?");
-                String CMND = sc.nextLine();
+                String CMND = Validation.getPerCMNDFromInput("CMND");
                 for(Employee emp : listEmp){
                     if (emp.getPerId().equals(perId)) {
                         emp.setPerCMND(CMND);
@@ -161,7 +157,7 @@ public class EmployeeService  {
                 break;
             case 5:
                 System.out.println("~~~~~~~~~What Phone number you want to change?");
-                String phoneNumber = sc.nextLine();
+                String phoneNumber = Validation.getPerPhoneFromInput("Phone number");
                 for(Employee emp : listEmp){
                     if (emp.getPerId().equals(perId)) {
                         emp.setPerPhone(phoneNumber);
@@ -170,7 +166,7 @@ public class EmployeeService  {
                 break;
             case 6:
                  System.out.println("~~~~~~~~~What Email you want to change?");
-                String email = sc.nextLine();
+                String email = Validation.getStringFromInput("Email");
                 for(Employee emp : listEmp){
                     if (emp.getPerId().equals(perId)) {
                         emp.setPerEmail(email);
@@ -179,7 +175,7 @@ public class EmployeeService  {
                 break;
             case 7:
                 System.out.println("~~~~~~~~~What Level you want to change?");
-                String level = sc.nextLine();
+                String level = Validation.getStringFromInput("Level");
                 for(Employee emp : listEmp){
                     if (emp.getPerId().equals(perId)) {
                         emp.setEmpLevel(level);
@@ -188,7 +184,7 @@ public class EmployeeService  {
                 break;
             case 8:
                 System.out.println("~~~~~~~~~What Position you want to change?");
-                String position = sc.nextLine();
+                String position = Validation.getStringFromInput("Position");
                 for(Employee emp : listEmp){
                     if (emp.getPerId().equals(perId)) {
                         emp.setEmpPosition(position);
@@ -197,7 +193,7 @@ public class EmployeeService  {
                 break;
             case 9:
                 System.out.println("~~~~~~~~~What Salary you want to change?");
-                int salary = sc.nextInt();
+                int salary = Validation.getIntFromInput("salary");
                 for(Employee emp : listEmp){
                     if (emp.getPerId().equals(perId)) {
                         emp.setEmpSalary(salary);
