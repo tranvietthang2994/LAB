@@ -137,7 +137,7 @@ public class FacilityService extends Menu {
             switch (n) {
                 case 1 -> {
                     System.out.println("Enter service ID: ");
-                    String svID = sc.nextLine();
+                    String svID = getSvIDFromInput("ID");
                     listFacility.add(addFacility(svID));
                     displayFacility();
                     break;
@@ -145,7 +145,7 @@ public class FacilityService extends Menu {
 
                 case 2 -> {
                     System.out.println("Enter service ID: ");
-                    String svID = sc.nextLine();
+                    String svID = getSvIDFromInput("ID");
                     listFacility.add(addFacility(svID));
                     displayFacility();
                     break;
