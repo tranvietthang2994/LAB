@@ -59,9 +59,9 @@ public class EmployeeService  {
         
         String perName = Validation.getPerNameFromInput("Name");
 
-         Date perBirth = Validation.getBirthFromInput("date of birth");
+        Date perBirth = Validation.getBirthFromInput("date of birth");
 
-         String perSex = Validation.getStringFromInput("Sex");
+        String perSex = Validation.getStringFromInput("Sex");
 
         String perCMND = Validation.getPerCMNDFromInput("CMND");
 

@@ -11,7 +11,7 @@ import model.Facility;
 import model.House;
 import model.Room;
 import model.Villa;
-import repository.FacilityRepository;
+
 import view.Menu;
 
 /**
@@ -110,7 +110,7 @@ public class FacilityService extends Menu {
     }
 
     public static void displayListFacilityMaintainence() {
-        String choice = "ÿ";
+        String choice = "y";
         do {
             System.out.println("Nhap vao service ID: ");
             String svID = sc.nextLine();

@@ -36,9 +36,11 @@ public class Employee extends Person{
     public void setEmpPosition(String empPosition) {
         this.empPosition = empPosition;
     }
+    
     public int getEmpSalary() {
         return empSalary;
     }
+
     public void setEmpSalary(int empSalary) {
         this.empSalary = empSalary;
     }
